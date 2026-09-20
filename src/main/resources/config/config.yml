@@ -1,0 +1,28 @@
+gradle:
+  active: true
+  AvoidAfterEvaluate:
+    active: true
+  AvoidCrossProjectConfiguration:
+    active: true
+    allowAllprojects: false
+  AvoidEagerWithType:
+    active: true
+  AvoidExtraProperties:
+    active: true
+  AvoidProjectEquality:
+    active: true
+  AvoidRootProjectAccess:
+    active: true
+  AvoidStringTaskReferences:
+    active: true
+  LazyCollectionOperators:
+    active: true
+    additionalEagerMethods: [ ]
+  PreferGradlePropertyProvider:
+    active: true
+  PreferNamedOverGet:
+    active: true
+    allowFindByName: false
+  PreferRegisterOverCreate:
+    active: true
+    allowMaybeCreate: false

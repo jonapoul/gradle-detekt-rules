@@ -1,0 +1,21 @@
+---
+comments:
+  active: false
+
+complexity:
+  LabeledExpression:
+    active: false
+
+naming:
+  BooleanPropertyNaming:
+    allowedPattern: "^(is|has|are|can|allow)"
+  FunctionNameMaxLength:
+    excludes: [ '**/test/**' ]
+
+style:
+  MultilineRawStringIndentation:
+    active: false # clashes with ktfmt
+  RedundantVisibilityModifier:
+    active: false
+  ReturnCount:
+    max: 5

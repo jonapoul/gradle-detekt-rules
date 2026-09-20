@@ -1,0 +1,18 @@
+[versions]
+detekt = "2.0.0-alpha.6"
+
+[libraries]
+assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
+detekt-api = { module = "dev.detekt:detekt-api", version.ref = "detekt" }
+detekt-test = { module = "dev.detekt:detekt-test", version.ref = "detekt" }
+detekt-testJunit = { module = "dev.detekt:detekt-test-junit", version.ref = "detekt" }
+detekt-testUtils = { module = "dev.detekt:detekt-test-utils", version.ref = "detekt" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version = "26.1.0" }
+ktfmt = { module = "com.facebook:ktfmt", version = "0.64" } # only used in ktfmt.sh
+
+[plugins]
+buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.1.0" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
+dokka = { id = "org.jetbrains.dokka", version = "2.2.0" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version = "2.4.10" }
+publish = { id = "com.vanniktech.maven.publish", version = "0.37.0" }
