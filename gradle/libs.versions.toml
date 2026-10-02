@@ -14,5 +14,5 @@ ktfmt = { module = "com.facebook:ktfmt", version = "0.64" } # only used in ktfmt
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.1.0" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
 dokka = { id = "org.jetbrains.dokka", version = "2.2.0" }
-kotlin = { id = "org.jetbrains.kotlin.jvm", version = "2.4.10" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version = "2.4.20" }
 publish = { id = "com.vanniktech.maven.publish", version = "0.37.0" }
