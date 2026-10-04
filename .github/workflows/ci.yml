@@ -24,13 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
-      - uses: gradle/actions/wrapper-validation@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6
+      - uses: gradle/actions/wrapper-validation@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
 
-      - uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2
+      - uses: raven-actions/actionlint@3d39aea434753780c3b3d4a1a31c854b4dbf49d7 # v2.2.0
 
       - name: Shellcheck
         run: shellcheck scripts/*.sh
@@ -47,18 +47,18 @@ jobs:
           config: ./config/betterleaks.toml
           fail-on-leak: 'true'
 
-      - uses: github/codeql-action/upload-sarif@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4
+      - uses: github/codeql-action/upload-sarif@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
         if: always()
         with:
           sarif_file: ${{ steps.betterleaks.outputs.sarif-path }}
           category: betterleaks
 
-      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
         with:
           java-version-file: .java-version
           distribution: zulu
 
-      - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6
+      - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
         with:
           add-job-summary: on-failure
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
@@ -70,7 +70,7 @@ jobs:
         run: ./gradlew check --continue
 
       - name: Upload detekt SARIF
-        uses: github/codeql-action/upload-sarif@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4
+        uses: github/codeql-action/upload-sarif@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
         if: ${{ !cancelled() }}
         with:
           sarif_file: build/reports/detekt/merged.sarif
@@ -80,5 +80,5 @@ jobs:
         if: ${{ !cancelled() }}
         run: ./gradlew publishToMavenLocal -PRELEASE_SIGNING_ENABLED=false
 
-      - uses: gmazzo/publish-report-annotations@d9c7375f4c587879eeedba56c6e35f1235219f9f # v1
+      - uses: gmazzo/publish-report-annotations@fd89066243de4fee389751007d98b4ac1d6ffeb0 # v1.22.3
         if: ${{ !cancelled() }}
